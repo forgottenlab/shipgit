@@ -1,0 +1,9 @@
+project:
+  name: shipgit
+  defaultBranch: main
+ui:
+  language: zh
+remotes: []
+publish:
+  pushTags: true
+  requireGitignore: true
