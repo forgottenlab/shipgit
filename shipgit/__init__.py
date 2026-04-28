@@ -1,1 +1,2 @@
-__version__ = "0.1.0-prototype"
+__version__ = "0.1.1-prototype"
+

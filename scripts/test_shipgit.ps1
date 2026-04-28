@@ -41,6 +41,18 @@ Run-Step "Guide / 指引: shipgit guide --lang en" {
     shipgit guide --lang en
 }
 
+Run-Step "Self-test / 自检: shipgit test" {
+    shipgit test
+}
+
+Run-Step "Self-test / 自检: shipgit test --lang en" {
+    shipgit test --lang en
+}
+
+Run-Step "Self-test / 自检: shipgit --lang bi test" {
+    shipgit --lang bi test
+}
+
 Run-Step "Set language / 设置语言: zh with bilingual output" {
     shipgit config-lang zh --lang bi
 }

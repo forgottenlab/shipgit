@@ -1,6 +1,6 @@
 [project]
 name = "shipgit"
-version = "0.1.0"
+version = "0.1.1"
 description = "A lightweight Git shipping assistant for safe commits, tags, and multi-remote publishing."
 requires-python = ">=3.10"
 dependencies = [
@@ -16,3 +16,4 @@ shipgit = "shipgit.main:app"
 [tool.ruff]
 line-length = 100
 target-version = "py311"
+

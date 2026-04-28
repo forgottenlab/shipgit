@@ -3,7 +3,10 @@ project:
   defaultBranch: main
 ui:
   language: zh
-remotes: []
+remotes:
+- name: github
+  url: git@github.com:forgottenlab/shipgit.git
+  enabled: true
 publish:
   pushTags: true
   requireGitignore: true

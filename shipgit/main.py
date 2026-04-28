@@ -9,6 +9,7 @@ from rich.panel import Panel
 from shipgit import __version__
 from shipgit.i18n import set_lang, get_lang, normalize_lang, text
 from shipgit.guide import show_command_guide
+from shipgit.tester import run_self_test
 from shipgit.checks import (
     print_doctor_report,
     ensure_gitignore,
@@ -111,6 +112,19 @@ def guide(
 
 
 @app.command()
+def test(
+    lang: str | None = typer.Option(None, "--lang", "-l", help="Language: zh / en / bi"),
+) -> None:
+    """
+    Run ShipGit self-test in a temporary project.
+    """
+    active_lang = apply_language(Path.cwd().resolve(), lang)
+    ok = run_self_test(active_lang)
+    if not ok:
+        raise typer.Exit(code=1)
+
+
+@app.command()
 def version(
     lang: str | None = typer.Option(None, "--lang", "-l", help="Language: zh / en / bi"),
 ) -> None:
@@ -160,8 +174,6 @@ def init(
     config.project_name = project_dir.name
     config.default_branch = get_current_branch(project_dir) or "main"
 
-    # init 不应该因为 --lang 临时参数而改变项目默认语言。
-    # 默认语言只由 shipgit config-lang 修改。
     if not config.language:
         config.language = "zh"
 
